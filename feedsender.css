@@ -1,0 +1,206 @@
+.opinion {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+    text-align: left;
+    background-color: #eeeeee;
+    overflow: hidden;
+}
+.opinion *:focus {
+    outline: none;
+}
+.opinion-form {
+    margin: auto;
+}
+.form-field {
+    position: relative;
+    margin: 0px 0px 10px 0px;
+}
+.opinion-field-caption {
+    display: none;
+}
+.required-field.unfilled-field {
+    background-color: rgba(132, 15, 15, 0.1);
+    outline: 2px solid #840f0f;
+}
+.required-field.unfilled-field a {
+    background-color: rgba(132, 15, 15, 0.5);
+}
+
+
+/*hidden*/
+.form-field.formid-field {
+    display: none;
+    margin: 0px;
+}
+/*text*/
+.form-field input[type="text"], .form-field input[type="password"], .form-field input[type="email"] {
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 10px 0px 40px;
+    border: none;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+/*radio & checkbox*/
+.form-field input[type="radio"], .form-field input[type="checkbox"] {
+    display: none;
+}
+.form-field label {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 30px;
+    margin: 2px 0px;
+    padding: 0px 10px 0px 40px;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-weight: normal;
+    cursor: pointer;
+}
+.form-field input:disabled + label {
+    color: #999999;
+}
+.form-field label:before {
+    content: " ";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 30px;
+    height: 30px;
+    background-image: url(labels.png);
+    background-size: auto 500%;
+    background-position: 0% 0%;
+}
+.select-field label:before {
+    background-position: 0% 0%;
+}
+.select-field label:hover:before {
+    background-position: 0% 25%;
+}
+.select-field input:checked + label:before {
+    background-position: 0% 50%;
+}
+.select-field input:disabled + label:before {
+    background-position: 0% 75%;
+}
+.select-field input:disabled:checked + label:before {
+    background-position: 0% 100%;
+}
+.checkbox-field label:before {
+    background-position: 100% 0%;
+}
+.checkbox-field label:hover:before {
+    background-position: 100% 25%;
+}
+.checkbox-field input:checked + label:before {
+    background-position: 100% 50%;
+}
+.checkbox-field input:disabled + label:before {
+    background-position: 100% 75%;
+}
+.checkbox-field input:disabled:checked + label:before {
+    background-position: 100% 100%;
+}
+.form-field select {
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 10px 0px 40px;
+    border: none;
+    box-sizing: border-box;
+    font-size: 18px;
+    cursor: pointer;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+}
+/*textarea*/
+.form-field textarea {
+    display: block;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: 30px;
+    min-height: 150px;
+    padding: 0px 10px 0px 40px;
+    border: none;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+/*file*/
+.form-field input[type="file"] {
+    display: none;
+}
+.form-field a {
+    display: block;
+    line-height: 40px;
+    padding: 0px 10px 0px 40px;
+    color: #ffffff;
+    background-color: #840f0f;
+}
+.form-field a:before {
+    content: " ";
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    background-image: url(icons.png);
+    background-size: auto 200%;
+    background-position: 100% 100%;
+}
+/*buttons*/
+.form-buttons {
+    position: relative;
+    height: 40px;
+    margin: 10px 0px 0px 0px;
+    text-align: center;
+}
+.button-style {
+    display: inline-block;
+    line-height: 40px;
+    padding: 0px 10px;
+}
+.button-send {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    color: #ffffff;
+    background-color: #840f0f;
+}
+.button-cancel {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+
+/*icons*/
+span.field-icon {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background-image: url(icons.png);
+    background-size: auto 200%;
+    background-position: 0% 0%;
+}
+.name-field span.field-icon {
+    background-position: 20% 0%;
+}
+.list-field span.field-icon {
+    background-position: 40% 0%;
+}
+.list-field:hover span.field-icon {
+    background-position: 60% 0%;
+}
+.comment-field span.field-icon {
+    background-position: 80% 0%;
+}

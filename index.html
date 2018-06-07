@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//RU">
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="shortcut icon" href="favicon.ico" type="image/ico">
+		<title>Feedsender. Simple example</title>
+		<link href="styles.css" type="text/css" rel="stylesheet">
+		<link href="feedsender.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="feedsender.js"></script>
+	</head>
+	<body>
+		<div class="content">
+			<h2>Feedsender forms using sendmail</h2>
+			<div class="examples">
+				<div id="form-wrapper2" class="opinion">
+					<form class="opinion-form">
+						<div class="form-field opinion-field formid-field">
+							<div class="opinion-field-caption">Form ID</div>
+							<span class="empty-icon"></span>
+							<input type="hidden" name="formid" value="my_form">
+						</div>
+						<div class="form-field opinion-field name-field super-field">
+							<div class="opinion-field-caption">User name</div>
+							<span class="field-icon named-icon"></span>
+							<input type="text" name="name" placeholder="your name">
+						</div>
+						<div class="form-field opinion-field list-field">
+							<div class="opinion-field-caption">Select option</div>
+							<span class="field-icon"></span>
+							<select name="list">
+								<option>option 1</option>
+								<option disabled>option 2</option>
+								<option selected>option 3</option>
+							</select>
+						</div>
+						<div class="form-field opinion-field checkbox-field">
+							<div class="opinion-field-caption">Check options</div>
+							<input type="checkbox" name="check_unit" id="2check_unit_0" disabled checked value="checkbox 1">
+							<label class="field-icon" for="2check_unit_0">checkbox 1</label>
+							<input type="checkbox" name="check_unit" id="2check_unit_1" disabled value="disabled">
+							<label class="field-icon" for="2check_unit_1">disabled</label>
+							<input type="checkbox" name="check_unit" id="2check_unit_2" value="checkbox 2">
+							<label class="field-icon" for="2check_unit_2">checkbox 2</label>
+							<input type="checkbox" name="check_unit" id="2check_unit_3" checked value="checkbox 3">
+							<label class="field-icon" for="2check_unit_3">checkbox 3</label>
+						</div>
+						<div class="form-field opinion-field select-field opt-field">
+							<div class="opinion-field-caption">Change option</div>
+							<input type="radio" name="sel" id="2sel_0" value="selector 1">
+							<label class="field-icon" for="2sel_0">selector 1</label>
+							<input type="radio" name="sel" id="2sel_1" value="selector 2">
+							<label class="field-icon" for="2sel_1">selector 2</label>
+							<input type="radio" name="sel" id="2sel_2" disabled checked value="selector 3">
+							<label class="field-icon" for="2sel_2">selector 3</label>
+						</div>
+						<div class="form-field opinion-field comment-field">
+							<div class="opinion-field-caption">Comment</div>
+							<span class="field-icon"></span>
+							<textarea type="textarea" name="comment" placeholder="your comment"></textarea>
+						</div>
+						<div class="form-field opinion-field file-field order-field">
+							<div class="opinion-field-caption">Attached files</div>
+							<a class="order-icon">Attach a file</a>
+							<input type="file" name="order" multiple="">
+						</div>
+						<div class="form-error"></div>
+						<div class="form-buttons buttons-block opinion-buttons">
+							<a class="button-style button-send">Send</a>
+							<a class="button-style button-cancel">Cancel</a>
+						</div>
+					</form>
+				</div>
+				<div id="form-wrapper" class="opinion"></div>
+			</div>
+			<pre></pre>
+		</div>
+		<script>
+			var my_fields = 
+			[
+				{
+					type: 'hidden', 
+					name: 'formid', 
+					class_name: 'formid-field', 
+					icon: 'empty-icon', 
+					hold: 'my_form', 
+					caption: 'Form ID', 
+					required: false, 
+				}, 
+				{
+					type: 'text', 
+					name: 'name', 
+					class_name: 'name-field super-field', 
+					icon: 'field-icon named-icon', 
+					hold: 'your name', 
+					caption: 'User name', 
+					required: false, 
+				}, 
+				{
+					type: 'select', 
+					name: 'list', 
+					class_name: 'list-field', 
+					hold: ['option 1', 'option 2{disabled}', 'option 3{selected}'], 
+					caption: 'Select option', 
+					required: true, 
+				}, 
+				{
+					type: 'checkbox', 
+					name: 'check_unit', 
+					class_name: 'checkbox-field', 
+					hold: ['checkbox 1{selected}{disabled}', 'checkbox dis{disabled}', 'checkbox 2', 'checkbox 3{selected}'], 
+					caption: 'Check options', 
+					required: true, 
+				}, 
+				{
+					type: 'radio', 
+					name: 'sel', 
+					class_name: 'select-field opt-field', 
+					hold: 'selector 1; selector 2{selected}; selector 3{disabled}', 
+					caption: 'Change option', 
+					required: true, 
+				}, 
+				{
+					type: 'textarea', 
+					name: 'comment', 
+					class_name: 'comment-field', 
+					hold: 'your comment', 
+					caption: 'Comment', 
+					required: false, 
+				}, 
+				{
+					type: 'file', 
+					name: 'order', 
+					class_name: 'file-field order-field', 
+					icon: 'order-icon', 
+					hold: 'Attach a file{multiple}', 
+					caption: 'Attached files', 
+					required: false, 
+				}, 
+				{
+					type: 'file', 
+					name: 'addition_files', 
+					class_name: 'file-field addition-field', 
+					icon: 'addition-icon', 
+					hold: 'Attach a file{multiple}', 
+					caption: 'Addition files', 
+					required: false, 
+				}, 
+			];
+			var my_options = 
+			{
+//				icon: 'field-icon', 
+//				field_type: 'text', 
+				field_class: 'form-field opinion-field', 
+//				field_placeholder: '', 
+//				btn_block_class: 'form-buttons buttons-block opinion-buttons', 
+//				btn_sender: true, 
+//				btn_sender_class: 'button-style button-send', 
+//				btn_sender_text: 'Send me now', 
+//				btn_cancel: true, 
+//				btn_cancel_class: 'button-style button-cancel', 
+//				btn_cancel_text: 'Cancel', 
+			};
+
+			$(document).ready(function () 
+			{
+				var my_form = opinion('#form-wrapper').options(my_options).create(my_fields);
+				var read_form = opinion('#form-wrapper2').read();
+			});
+		</script>
+	</body>
+</html>

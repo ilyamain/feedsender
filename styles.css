@@ -1,0 +1,19 @@
+body {
+    margin: 0px;
+    font-size: 24px;
+    font-family: sans-serif;
+    color: #171203;
+}
+h2 {
+    text-align: center;
+}
+a {
+    color: #840f0f;
+    cursor: pointer;
+}
+.content {
+    margin: 0px auto;
+}
+.examples {
+    text-align: center;
+}
